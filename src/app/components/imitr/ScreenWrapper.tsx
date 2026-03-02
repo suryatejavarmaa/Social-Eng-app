@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTheme } from '../../context/ThemeContext';
-import emeraldBg from 'figma:asset/e12529c9b31c3c6df10051c7dd0838954d5b96f1.png';
+import emeraldBg from '../../../assets/e12529c9b31c3c6df10051c7dd0838954d5b96f1.png';
 
 import { ThemeToggle } from './ThemeToggle';
 

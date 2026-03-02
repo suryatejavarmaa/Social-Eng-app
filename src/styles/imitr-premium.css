@@ -1,0 +1,250 @@
+/* ═══════════════════════════════════════════════════════════ */
+/* IMITR Premium Animations & Effects                        */
+/* ═══════════════════════════════════════════════════════════ */
+
+/* Shimmer effect for premium cards */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes goldPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.15); }
+  50% { box-shadow: 0 0 40px rgba(212, 175, 55, 0.3); }
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+@keyframes borderGlow {
+  0%, 100% { border-color: rgba(212, 175, 55, 0.2); }
+  50% { border-color: rgba(212, 175, 55, 0.5); }
+}
+
+@keyframes ripple {
+  0% { transform: scale(0); opacity: 0.6; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeInScale {
+  from { transform: scale(0.9); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+@keyframes breathe {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes sparkle {
+  0%, 100% { opacity: 0; transform: scale(0) rotate(0deg); }
+  50% { opacity: 1; transform: scale(1) rotate(180deg); }
+}
+
+@keyframes slideDown {
+  from { transform: translateY(-10px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes sunRotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes moonRotate {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(15deg); }
+}
+
+/* ─── Utility Classes ─── */
+.imitr-shimmer {
+  background: linear-gradient(90deg, transparent 0%, rgba(212,175,55,0.08) 50%, transparent 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+.imitr-gold-pulse {
+  animation: goldPulse 3s ease-in-out infinite;
+}
+
+.imitr-float {
+  animation: floatUp 4s ease-in-out infinite;
+}
+
+.imitr-border-glow {
+  animation: borderGlow 2s ease-in-out infinite;
+}
+
+.imitr-slide-in {
+  animation: slideInUp 0.5s ease-out forwards;
+}
+
+.imitr-fade-scale {
+  animation: fadeInScale 0.4s ease-out forwards;
+}
+
+.imitr-breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.imitr-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradientShift 4s ease infinite;
+}
+
+.imitr-slide-down {
+  animation: slideDown 0.3s ease-out forwards;
+}
+
+.imitr-sun-rotate {
+  animation: sunRotate 20s linear infinite;
+}
+
+.imitr-moon-rotate {
+  animation: moonRotate 3s ease-in-out infinite;
+}
+
+/* ─── Premium Scrollbar ─── */
+
+/* Hide all scrollbars globally — pages still scroll, no visible track */
+*,
+*::before,
+*::after,
+html,
+body,
+#root {
+  scrollbar-width: none !important;
+  -ms-overflow-style: none !important;
+}
+
+*::-webkit-scrollbar,
+*::before::-webkit-scrollbar,
+*::after::-webkit-scrollbar,
+html::-webkit-scrollbar,
+body::-webkit-scrollbar,
+#root::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  background: transparent !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
+/* Ensure body and root have overflow hidden for scrollbar but allow scroll */
+html,
+body {
+  overflow: auto;
+  overflow-x: hidden;
+}
+
+/* imitr-scroll opt-in class for specific containers that need visible scroll */
+.imitr-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(212, 175, 55, 0.2) transparent;
+}
+
+.imitr-scroll::-webkit-scrollbar {
+  display: block;
+  width: 3px;
+}
+
+.imitr-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.imitr-scroll::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.2);
+  border-radius: 100px;
+}
+
+.imitr-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.4);
+}
+
+/* ─── Glass morphism enhanced ─── */
+.imitr-glass {
+  backdrop-filter: blur(24px) saturate(1.8);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+}
+
+/* ─── Button Ripple ─── */
+.imitr-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── Stagger children animation ─── */
+.imitr-stagger > * {
+  animation: slideInUp 0.4s ease-out both;
+}
+.imitr-stagger > *:nth-child(1) { animation-delay: 0.05s; }
+.imitr-stagger > *:nth-child(2) { animation-delay: 0.1s; }
+.imitr-stagger > *:nth-child(3) { animation-delay: 0.15s; }
+.imitr-stagger > *:nth-child(4) { animation-delay: 0.2s; }
+.imitr-stagger > *:nth-child(5) { animation-delay: 0.25s; }
+.imitr-stagger > *:nth-child(6) { animation-delay: 0.3s; }
+.imitr-stagger > *:nth-child(7) { animation-delay: 0.35s; }
+.imitr-stagger > *:nth-child(8) { animation-delay: 0.4s; }
+.imitr-stagger > *:nth-child(9) { animation-delay: 0.45s; }
+.imitr-stagger > *:nth-child(10) { animation-delay: 0.5s; }
+
+/* ─── Notification badge pulse ─── */
+@keyframes badgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+.imitr-badge-pulse {
+  animation: badgePulse 2s ease-in-out infinite;
+}
+
+/* ─── Premium input focus ─── */
+.imitr-input-focus:focus-within {
+  /* motion effects removed */
+}
+
+/* ─── Card hover lift ─── */
+.imitr-card-hover {
+  /* motion effects removed */
+}
+
+/* ─── Smooth page transitions ─── */
+.imitr-page-enter {
+  animation: slideInUp 0.4s ease-out;
+}
+
+/* ─── Number counter ─── */
+.imitr-counter {
+  animation: countUp 0.6s ease-out;
+  display: inline-block;
+}
+
+/* ─── Premium skeleton loading ─── */
+@keyframes skeletonShimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.imitr-skeleton {
+  background: linear-gradient(90deg, rgba(212,175,55,0.05) 25%, rgba(212,175,55,0.12) 50%, rgba(212,175,55,0.05) 75%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.5s infinite;
+  border-radius: 8px;
+}
